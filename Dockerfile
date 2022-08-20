@@ -1,4 +1,4 @@
-FROM python:3.10-slim AS production
+FROM python:3.10-slim AS base
 
 
 ENV MODULE_NAME=app.main:app
@@ -34,4 +34,3 @@ FROM production AS dev
 
 RUN pip install -r ./requirements-dev.txt
 
-CMD ["/start-reload.sh"]

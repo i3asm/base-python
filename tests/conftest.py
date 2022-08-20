@@ -100,27 +100,3 @@ def seed_data(client: TestClient):
     db_connection.commit()
 
     return data
-
-
-# from fastapi.testclient import TestClient
-
-# import app.api.todos.router as todo_router_file
-# import app.api.users.services.add_new_user as new_user_service
-# import app.api.users.services.login as login_service
-# from app.api.users.schema import UserCreateRequest
-
-# client = TestClient(todo_router_file.todo_router)
-
-
-# @pytest.fixture(scope="session")
-# def reg_user(clint: TestClient):
-#     create_user_request: UserCreateRequest = UserCreateRequest(username="userName", password="password")
-#     new_user_service.add_new_user_(create_user_request)
-#     yield login_service.login_(create_user_request)
-
-
-# def test_get_todos_of_user(reg_user):
-
-#     response = client.get("/todo", headers={"X-Token": f"Beare {reg_user}"})
-#     assert response.status_code == 200
-#     assert response.json() == {"msg": "Hello World"}
