@@ -9,15 +9,14 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
+    - name: pwd
+      run: |
+        pwd; ls
     - name: run tests
       run: |
         docker compose run pytest
