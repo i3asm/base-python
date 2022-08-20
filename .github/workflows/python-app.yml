@@ -15,8 +15,8 @@ jobs:
 
     steps:
     - name: pwd
-      run: |
-        pwd; ls
+      ls: |
+        ls
     - name: run tests
       run: |
         docker compose run pytest
