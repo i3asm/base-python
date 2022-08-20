@@ -34,3 +34,4 @@ FROM production AS dev
 
 RUN pip install -r ./requirements-dev.txt
 
+CMD ["/start-reload.sh"]

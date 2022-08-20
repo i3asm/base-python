@@ -6,13 +6,13 @@ services:
       - "5440:5432"
     image: postgres
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres2:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: dsadsa 
-      POSTGRES_USER : super
+      POSTGRES_PASSWORD: asdasd
+      POSTGRES_USER: asdasd
 
   dev:
-    build: 
+    build:
       context: .
       dockerfile: .devcontainer/Dockerfile
     depends_on:
@@ -22,8 +22,8 @@ services:
       - DB_NAME=todo
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=super
-      - DB_PASSWORD=dsadsa
+      - DB_USER=asdasd
+      - DB_PASSWORD=asdasd
     volumes:
       - .:/workspace:cached
     command: sleep infinity
@@ -31,7 +31,7 @@ services:
 
   api:
     restart: unless-stopped
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
       target: production
@@ -44,14 +44,14 @@ services:
       - DB_NAME=todo
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=super
-      - DB_PASSWORD=dsadsa
+      - DB_USER=asdasd
+      - DB_PASSWORD=asdasd
     volumes:
       - ./:/app/
     command: /start-reload.sh
 
   pytest:
-    build: 
+    build:
       dockerfile: Dockerfile
       context: .
       target: dev
@@ -62,8 +62,8 @@ services:
       - DB_NAME=todo_test
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=super
-      - DB_PASSWORD=dsadsa
+      - DB_USER=asdasd
+      - DB_PASSWORD=asdasd
       - ENVIRONMENT=testing
     volumes:
       - ./:/app/
@@ -71,4 +71,4 @@ services:
 
 
 volumes:
-  postgres:
+  postgres2:
