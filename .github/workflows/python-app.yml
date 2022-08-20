@@ -15,11 +15,9 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # "docker compose" won't run without this step.
     - uses: actions/checkout@v3
     
-    - name: pwd
-      run: |
-        ls
     - name: run tests
       run: |
         docker compose run pytest
